@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architect Gordon | Code Reviewer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="app-wrapper">
+        <header class="app-header">
+            <h1 class="app-title">CODE ASSISTANT DASHBOARD</h1>
+            <p class="app-subtitle">SYSTEM STATUS: READY FOR ARCHITECTURAL ANALYSIS</p>
+        </header>
+
+        <main class="dashboard-grid">
+            
+            <section class="pane editor-pane">
+                <div class="pane-header">
+                    <div class="window-controls">
+                        <span class="dot dot--red"></span>
+                        <span class="dot dot--yellow"></span>
+                        <span class="dot dot--green"></span>
+                    </div>
+                    <span class="tab-name">source_code.py</span>
+                </div>
+                
+                <textarea id="code-input" spellcheck="false" placeholder="Input source code here..."></textarea>
+                
+                <div class="pane-footer">
+                    <div class="editor-stats">
+                        <span>UTF-8</span>
+                        <span id="line-count">Ln 1, Col 1</span>
+                    </div>
+                    <button id="serve-btn" class="btn-primary">SERVE TO ARCHITECT</button>
+                </div>
+            </section>
+
+            <section class="pane chat-pane">
+                <div class="pane-header">
+                    <span class="tab-name">ARCHITECT_LOG</span>
+                </div>
+                
+                <div id="chat-window" class="chat-container">
+                    <div class="message message--bot">
+                        <div class="bot-status-light"></div>
+                        <div class="message-content">Awaiting transmission. Submit code for evaluation.</div>
+                    </div>
+                </div>
+
+                <div class="chat-footer">
+                    <div class="input-simulation">
+                        <span class="cursor">_</span>
+                        <span class="terminal-text">COMMAND_IDLE</span>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

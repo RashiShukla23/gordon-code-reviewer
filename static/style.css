@@ -1,0 +1,213 @@
+/* 1. CONFIGURATION */
+:root {
+    --bg-black: #050505;
+    --panel-gray: #121212;
+    --accent-red: #d32f2f;
+    --accent-red-glow: rgba(211, 47, 47, 0.4);
+    --border-gray: #252525;
+    --text-white: #e0e0e0;
+    --text-dim: #666666;
+    --code-color: #00e676;
+    --radius-large: 28px; /* Figma Specification */
+}
+
+/* 2. RESET & BASE */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-black);
+    color: var(--text-white);
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.app-wrapper {
+    width: 95vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3. HEADER */
+.app-header {
+    margin-bottom: 24px;
+}
+
+.app-title {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    color: var(--text-white);
+}
+
+.app-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    margin-top: 4px;
+}
+
+/* 4. GRID SYSTEM */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 24px;
+    flex: 1;
+}
+
+.pane {
+    background: var(--panel-gray);
+    border: 1px solid var(--border-gray);
+    border-radius: var(--radius-large);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* 5. PANE COMPONENTS */
+.pane-header {
+    padding: 16px 24px;
+    background: #181818;
+    border-bottom: 1px solid var(--border-gray);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.dot--red { background: #ff5f56; }
+.dot--yellow { background: #ffbd2e; }
+.dot--green { background: #27c93f; }
+
+.tab-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+}
+
+/* 6. EDITOR AREA */
+textarea {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 24px;
+    color: var(--code-color);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    resize: none;
+    outline: none;
+}
+
+.pane-footer {
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #181818;
+    border-top: 1px solid var(--border-gray);
+}
+
+.editor-stats {
+    font-size: 11px;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    gap: 20px;
+}
+
+.btn-primary {
+    background: var(--accent-red);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 20px var(--accent-red-glow);
+    transform: translateY(-1px);
+}
+
+/* 7. CHAT SYSTEM */
+.chat-container {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.message {
+    max-width: 90%;
+    padding: 16px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.message--bot {
+    background: #1c1c1c;
+    border-left: 3px solid var(--accent-red);
+    align-self: flex-start;
+}
+
+.bot-status-light {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-red);
+    box-shadow: 0 0 8px var(--accent-red);
+    margin-bottom: 8px;
+}
+
+.message--user {
+    background: var(--accent-red);
+    color: white;
+    align-self: flex-end;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+}
+
+.chat-footer {
+    padding: 20px 24px;
+    background: #181818;
+}
+
+.input-simulation {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-dim);
+    font-size: 12px;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
